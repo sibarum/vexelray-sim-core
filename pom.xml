@@ -17,7 +17,7 @@
     </description>
 
     <modules>
-        <!-- Kernels written by hand in SupirVast IR, a step as data, and the budgeted integer clock. vastir only. -->
+        <!-- The budgeted integer clock. The JDK only. -->
         <module>vexelray-sim-core</module>
         <!-- On the VexelRay stack: the work budget, the orbit camera, and the widgets a demo's control panel is made of. -->
         <module>vexelray-sim-core-gui</module>
@@ -44,7 +44,7 @@
 
             <dependency>
                 <groupId>dev.supirvast</groupId>
-                <artifactId>vastir</artifactId>
+                <artifactId>vastir-tools</artifactId>
                 <version>${supirvast.version}</version>
             </dependency>
             <dependency>

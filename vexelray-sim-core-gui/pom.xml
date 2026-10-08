@@ -22,10 +22,15 @@
             <groupId>dev.vexelray.sim</groupId>
             <artifactId>vexelray-sim-core</artifactId>
         </dependency>
-        <!-- GuiApp's offload lane, for Builds. -->
+        <!-- GuiApp: its offload lane, for Builds; its device, which AppCompute lends; its input, for OrbitControl. -->
         <dependency>
             <groupId>dev.vexelray.gui</groupId>
             <artifactId>vexelray-gui-core</artifactId>
+        </dependency>
+        <!-- GpuContext, which AppCompute makes on the application's device. -->
+        <dependency>
+            <groupId>dev.supirvast</groupId>
+            <artifactId>vastir-tools</artifactId>
         </dependency>
         <!-- The inspector rows Dial and Pick are. -->
         <dependency>

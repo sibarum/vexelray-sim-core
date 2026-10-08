@@ -13,14 +13,8 @@
     <artifactId>vexelray-sim-core</artifactId>
 
     <description>
-        What every simulation's kernels are written with: a kernel body in SupirVast IR, a step as passes over named
-        buffers, and the host's integer clock. Depends on vastir and the JDK only: no engine and no window.
+        What every simulation's host side shares below the stack: the integer clock that grants a kernel its
+        budget and settles what it spent. The JDK only. Writing kernels (Body) and a step as passes over named
+        buffers are SupirVast's own, in vastir, since nothing about them is a simulation's.
     </description>
-
-    <dependencies>
-        <dependency>
-            <groupId>dev.supirvast</groupId>
-            <artifactId>vastir</artifactId>
-        </dependency>
-    </dependencies>
 </project>

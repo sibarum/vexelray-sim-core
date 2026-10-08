@@ -11,8 +11,15 @@ so that neither imports the other.
 
 | Module | What it holds |
 | --- | --- |
-| `vexelray-sim-core` | `ir.Body`: a kernel written by hand in SupirVast IR. `step.Pass`, `step.BufferSpec`, `step.Buffered`: a step as data, meaning which kernel runs over which named buffers, how many times, in what order, so any backend's runner can take it. `time.Clock`: the host's integer clock, which grants the kernel a budget of microsecond ticks and settles what it spent. Depends on vastir only. |
-| `vexelray-sim-core-gui` | `BudgetController`: sizes a tick's work from measured throughput. `Orbit`: the camera that circles a box centred on the origin. `Builds`: slow work on the application's offload lane, only the latest kept. `Dial` and `Pick`: control-panel rows for a number on a slider and a choice behind a menu. |
+| `vexelray-sim-core` | `time.Clock`: the host's integer clock, which grants the kernel a budget of microsecond ticks and settles what it spent. The JDK only. |
+| `vexelray-sim-core-gui` | `BudgetController`: sizes a tick's work from measured throughput. `Orbit`: the camera that circles a box centred on the origin. `Builds`: slow work on the application's offload lane, only the latest kept. `Dial` and `Pick`: control-panel rows for a number on a slider and a choice behind a menu. `OrbitControl`: an `Orbit` turned by dragging in a node and zoomed by the wheel over it. `AppCompute`: a compute context on the window's own GPU, so a picture reads the simulation's buffers where they are. `DemoLook`: the demos' theme and type. |
+
+Some of what started here turned out not to be a simulation's at all, and went further down:
+
+- **To SupirVast:** `Body`, which writes kernels, and `Pass`, `BufferSpec` and `Buffered`, a step as data, are
+  in vastir (`dev.supirvast.vastir.build`, `dev.supirvast.vastir.pass`). `PassRunner` in vastir-tools runs such a
+  step on the GPU or the CPU.
+- **To Kronometer:** time, rates and curves. The demos' timing is Kronometer's, not anything here.
 
 ## Running
 
