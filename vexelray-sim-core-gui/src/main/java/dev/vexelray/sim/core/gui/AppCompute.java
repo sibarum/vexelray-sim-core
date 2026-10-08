@@ -1,6 +1,7 @@
 package dev.vexelray.sim.core.gui;
 
 import dev.supirvast.vastir.tools.GpuContext;
+import dev.vexelray.gui.core.app.ComputeQueue;
 import dev.vexelray.gui.core.app.GuiApp;
 
 import java.util.Optional;
@@ -37,5 +38,19 @@ public final class AppCompute {
         } catch (IllegalArgumentException cannot) {
             return Optional.empty();
         }
+    }
+
+    /**
+     * A context on a compute queue lent to one owner ({@code Shell.computeQueue}, {@link GuiApp#lendComputeQueue}):
+     * the application's device, submitting to the queue nothing on the main thread does. Empty where nothing was lent.
+     *
+     * <p>Made on any thread, and the owner's from then on, as the queue is: every submission from the one thread that
+     * holds it. Closed by the owner before the application closes its device.
+     */
+    public static Optional<GpuContext> on(ComputeQueue queue) {
+        if (!queue.available()) {
+            return Optional.empty();
+        }
+        return Optional.of(GpuContext.on(queue.instance(), queue.device(), queue.family()));
     }
 }
