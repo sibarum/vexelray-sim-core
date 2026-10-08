@@ -21,10 +21,21 @@ Some of what started here turned out not to be a simulation's at all, and went f
   step on the GPU or the CPU.
 - **To Kronometer:** time, rates and curves. The demos' timing is Kronometer's, not anything here.
 
+## Status
+
+Small on purpose, and every piece has a user. The fluid uses `Clock`, `BudgetController`, `Orbit`, `Builds`, `Dial`
+and `Pick`. The rigid demo uses `Orbit`, `OrbitControl`, `AppCompute`, `Builds`, `Pick` and `DemoLook`. Two things
+are known to be coming, both asked for by vexelray-sim-physics:
+
+- **The boundary contract**: what a solid is to the fluid (where its surface is, and how fast it moves), and what
+  the fluid gives back (force and torque). It lives here so that neither simulation imports the other.
+- **Whatever of the demos' panels is shared**, once vexelray-sim-fluid's demo has been moved onto the rigid demo's
+  pattern. Its `docs/TODO.md` has the list.
+
 ## Running
 
-The stack's siblings must be installed to the local Maven repository first: `supirvast`, `vexelray`,
-`tactroller`, `vexelray-gui`.
+The stack's siblings must be installed to the local Maven repository first: `supirvast`, `vexelray`, `tactroller`,
+`atchung`, `vexelray-gui`.
 
 ```bash
 mvn install
