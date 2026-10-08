@@ -37,5 +37,11 @@
             <groupId>dev.vexelray.gui</groupId>
             <artifactId>vexelray-gui-widget</artifactId>
         </dependency>
+        <!-- A real application on a real device, for what AppCompute lends. -->
+        <dependency>
+            <groupId>dev.vexelray.gui</groupId>
+            <artifactId>vexelray-gui-harness</artifactId>
+            <scope>test</scope>
+        </dependency>
     </dependencies>
 </project>
