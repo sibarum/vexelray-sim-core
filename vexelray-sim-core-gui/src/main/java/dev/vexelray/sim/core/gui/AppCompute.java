@@ -2,6 +2,7 @@ package dev.vexelray.sim.core.gui;
 
 import dev.supirvast.vastir.tools.GpuContext;
 import dev.vexelray.gui.core.app.ComputeQueue;
+import dev.vexelray.gui.core.app.DrawingQueue;
 import dev.vexelray.gui.core.app.GuiApp;
 
 import java.util.Optional;
@@ -52,5 +53,13 @@ public final class AppCompute {
             return Optional.empty();
         }
         return Optional.of(GpuContext.on(queue.instance(), queue.device(), queue.family()));
+    }
+
+    /**
+     * A context on the queue that draws, where compute has no queue of its own ({@link ComputeQueue#drawingQueue}):
+     * every submission it makes has to go through {@link DrawingQueue#run}, on the main thread. Closed the same way.
+     */
+    public static GpuContext on(DrawingQueue queue) {
+        return GpuContext.on(queue.instance(), queue.device(), queue.family());
     }
 }
