@@ -57,7 +57,8 @@ public final class AppCompute {
 
     /**
      * A context on the queue that draws, where compute has no queue of its own ({@link ComputeQueue#drawingQueue}):
-     * every submission it makes has to go through {@link DrawingQueue#run}, on the main thread. Closed the same way.
+     * every submission it makes has to go through {@link DrawingQueue#run}, on the main thread, and nothing else
+     * should: allocating, compiling, recording, waiting and closing touch no queue, and stay on the caller's thread.
      */
     public static GpuContext on(DrawingQueue queue) {
         return GpuContext.on(queue.instance(), queue.device(), queue.family());
