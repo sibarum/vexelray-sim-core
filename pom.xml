@@ -6,7 +6,7 @@
 
     <groupId>dev.vexelray.sim</groupId>
     <artifactId>vexelray-sim-core-parent</artifactId>
-    <version>0.1.2-SNAPSHOT</version>
+    <version>0.1.2</version>
     <packaging>pom</packaging>
 
     <name>vexelray-sim-core</name>
@@ -28,8 +28,8 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
         <!-- The stack, installed to the local .m2 from the sibling checkouts. -->
-        <supirvast.version>0.2.2-SNAPSHOT</supirvast.version>
-        <vexelray.gui.version>0.1.2-SNAPSHOT</vexelray.gui.version>
+        <supirvast.version>0.2.2</supirvast.version>
+        <vexelray.gui.version>0.1.2</vexelray.gui.version>
 
         <junit.version>5.11.4</junit.version>
     </properties>
@@ -88,7 +88,7 @@
             <plugin>
                 <groupId>dev.vexelray.build</groupId>
                 <artifactId>vexelray-build-maven-plugin</artifactId>
-                <version>0.1.2-SNAPSHOT</version>
+                <version>0.1.2</version>
                 <executions>
                     <execution>
                         <id>isolate</id>
